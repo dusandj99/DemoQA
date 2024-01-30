@@ -12,7 +12,7 @@ public class DynamicPropertiesPage extends BaseTest {
     }
 
     @FindBy(id = "enableAfter")
-    public WebElement enablrAfterButton;
+    public WebElement enableAfterButton;
 
     @FindBy(id = "colorChange")
     public WebElement colorChangeButton;
