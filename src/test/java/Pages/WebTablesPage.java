@@ -36,7 +36,14 @@ public class WebTablesPage extends BaseTest {
     public WebElement editButton;
     @FindBy(className = "rt-td")
     public WebElement rowData;
+    @FindBy(id = "searchBox")
+    public WebElement searchBox;
     //---------------------
+    public void search(String input)
+    {
+        searchBox.clear();
+        searchBox.sendKeys(input);
+    }
     public void editRow()
     {
         editButton.click();
