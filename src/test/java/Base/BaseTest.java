@@ -2,7 +2,6 @@ package Base;
 
 import Pages.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,8 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 
-import java.util.List;
-import java.util.Random;
+import java.io.IOException;
 
 public class BaseTest {
 
@@ -26,14 +24,14 @@ public class BaseTest {
     public RadioButtonPage radioButtonPage;
     public DynamicPropertiesPage dynamicPropertiesPage;
     public WebTablesPage webTablesPage;
-
+    public ExcelReader excelReader;
     public WebDriverWait wait;
 
 
     @BeforeClass
-    public void setUp()
-    {
+    public void setUp() throws IOException {
         WebDriverManager.chromedriver().setup();
+        excelReader = new ExcelReader("InputData.xlsx");
     }
 
     @AfterMethod

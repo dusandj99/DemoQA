@@ -14,8 +14,7 @@ import java.time.Duration;
 public class WebTablesTest extends BaseTest {
 
     private final String initialURL = "https://demoqa.com/";
-    private String firstName = "John";
-    private String newFirstName = "Jerry";
+    private String newFirstName = "Stefan";
 
     @BeforeMethod
     public void pageSetUp()
@@ -33,34 +32,34 @@ public class WebTablesTest extends BaseTest {
         clickSidebar("Web Tables");
     }
 
-    @Test
+    @Test(priority = 0)
     public void userCanAddNewRowWithValidData() {
         while (webTablesPage.rowContainsData()){
             webTablesPage.deleteRow();
         }
         webTablesPage.addRow();
-        webTablesPage.inputFirstname(firstName);
-        webTablesPage.inputLastname("Doe");
-        webTablesPage.inputEmail("john@gmail.com");
-        webTablesPage.inputAge("30");
-        webTablesPage.inputSalary("1000");
-        webTablesPage.inputDepartment("qa");
+        webTablesPage.inputFirstname(excelReader.getStringData("RowData", 1, 0));
+        webTablesPage.inputLastname(excelReader.getStringData("RowData", 1, 1));
+        webTablesPage.inputEmail(excelReader.getStringData("RowData", 1, 2));
+        webTablesPage.inputAge(String.valueOf(excelReader.getIntegerData("RowData", 1, 3)));
+        webTablesPage.inputSalary(String.valueOf(excelReader.getIntegerData("RowData", 1, 4)));
+        webTablesPage.inputDepartment(excelReader.getStringData("RowData", 1, 5));
         webTablesPage.submit();
         Assert.assertTrue(webTablesPage.rowContainsData());
-        Assert.assertEquals(webTablesPage.getFirstName(), firstName);
+        Assert.assertEquals(webTablesPage.getFirstName(), "Dusan");
     }
-    @Test
-    public void userCanEditRow() throws InterruptedException {
+    @Test(priority = 10)
+    public void userCanEditRow() {
         while (webTablesPage.rowContainsData()){ //delete all rows
             webTablesPage.deleteRow();
         }
         webTablesPage.addRow();
-        webTablesPage.inputFirstname(firstName);
-        webTablesPage.inputLastname("Doe");
-        webTablesPage.inputEmail("john@gmail.com");
-        webTablesPage.inputAge("30");
-        webTablesPage.inputSalary("1000");
-        webTablesPage.inputDepartment("qa");
+        webTablesPage.inputFirstname(excelReader.getStringData("RowData", 1, 0));
+        webTablesPage.inputLastname(excelReader.getStringData("RowData", 1, 1));
+        webTablesPage.inputEmail(excelReader.getStringData("RowData", 1, 2));
+        webTablesPage.inputAge(String.valueOf(excelReader.getIntegerData("RowData", 1, 3)));
+        webTablesPage.inputSalary(String.valueOf(excelReader.getIntegerData("RowData", 1, 4)));
+        webTablesPage.inputDepartment(excelReader.getStringData("RowData", 1, 5));
         webTablesPage.submit();  // add new row with our data
         webTablesPage.editRow();
         webTablesPage.inputFirstname(newFirstName); // change firstname
