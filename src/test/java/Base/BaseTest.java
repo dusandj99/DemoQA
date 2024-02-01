@@ -24,6 +24,7 @@ public class BaseTest {
     public RadioButtonPage radioButtonPage;
     public DynamicPropertiesPage dynamicPropertiesPage;
     public WebTablesPage webTablesPage;
+    public UploadAndDownloadPage uploadAndDownloadPage;
     public ExcelReader excelReader;
     public WebDriverWait wait;
 
