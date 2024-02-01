@@ -25,6 +25,7 @@ public class BaseTest {
     public SidebarPage sidebarPage;
     public RadioButtonPage radioButtonPage;
     public DynamicPropertiesPage dynamicPropertiesPage;
+    public WebTablesPage webTablesPage;
 
     public WebDriverWait wait;
 
