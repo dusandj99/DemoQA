@@ -18,6 +18,7 @@ public class WebTablesTest extends BaseTest {
 
     private final String initialURL = "https://demoqa.com/";
     private String firstName = "John";
+    private String newFirstName = "Jerry";
 
     @BeforeMethod
     public void pageSetUp()
@@ -50,5 +51,23 @@ public class WebTablesTest extends BaseTest {
         webTablesPage.submit();
         Assert.assertTrue(webTablesPage.rowContainsData());
         Assert.assertEquals(webTablesPage.getFirstName(), firstName);
+    }
+    @Test
+    public void userCanEditRow() throws InterruptedException {
+        while (webTablesPage.rowContainsData()){ //delete all rows
+            webTablesPage.deleteRow();
+        }
+        webTablesPage.addRow();
+        webTablesPage.inputFirstname(firstName);
+        webTablesPage.inputLastname("Doe");
+        webTablesPage.inputEmail("john@gmail.com");
+        webTablesPage.inputAge("30");
+        webTablesPage.inputSalary("1000");
+        webTablesPage.inputDepartment("qa");
+        webTablesPage.submit();  // add new row with our data
+        webTablesPage.editRow();
+        webTablesPage.inputFirstname(newFirstName); // change firstname
+        webTablesPage.submit();
+        Assert.assertEquals(webTablesPage.getFirstName(), newFirstName); // assert the name changed
     }
 }

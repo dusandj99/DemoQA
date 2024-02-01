@@ -33,9 +33,15 @@ public class WebTablesPage extends BaseTest {
     public WebElement submitButton;
     @FindBy(css = "span[title='Delete']")
     public WebElement deleteButton;
+    @FindBy(css = "span[title='Edit']")
+    public WebElement editButton;
     @FindBy(className = "rt-td")
     public WebElement rowData;
     //---------------------
+    public void editRow()
+    {
+        editButton.click();
+    }
     public void deleteRow()
     {
        deleteButton.click();
@@ -84,7 +90,7 @@ public class WebTablesPage extends BaseTest {
             if (deleteButton.isDisplayed())
                 return true;
         } catch (Exception e){
-            System.out.println(e);
+           // we do not want program to stop after we delete all buttons
         }
         return false;
     }
