@@ -28,7 +28,7 @@ public class RadioButtonTest extends BaseTest {
         radioButtonPage = new RadioButtonPage();
 
         clickCard("Elements");
-        clickSidebar("Radio Button");
+        sidebarPage.clickSidebar("Radio Button");
     }
 
     @Test

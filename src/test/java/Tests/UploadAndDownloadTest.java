@@ -33,7 +33,7 @@ public class UploadAndDownloadTest extends BaseTest {
         uploadAndDownloadPage = new UploadAndDownloadPage();
 
         clickCard("Elements");
-        clickSidebar("Upload and Download");
+        sidebarPage.clickSidebar("Upload and Download");
     }
 
     @Test

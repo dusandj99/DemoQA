@@ -30,7 +30,7 @@ public class WebTablesTest extends BaseTest {
         webTablesPage = new WebTablesPage();
 
         clickCard("Elements");
-        clickSidebar("Web Tables");
+        sidebarPage.clickSidebar("Web Tables");
     }
 
     @Test(priority = 0)

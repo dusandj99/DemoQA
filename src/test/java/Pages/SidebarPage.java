@@ -15,5 +15,18 @@ public class SidebarPage extends BaseTest {
 
     @FindBy(css = "ul.menu-list li")
     public List<WebElement> sidebarLinks;
+    //----------------------
+
+    public void clickSidebar(String sidebarLinkName)
+    {
+        for (WebElement s : sidebarLinks){
+            if (s.getText().equalsIgnoreCase(sidebarLinkName))
+            {
+                scrollToElement(s);
+                s.click();
+                break;
+            }
+        }
+    }
 
 }

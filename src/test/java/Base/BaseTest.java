@@ -26,6 +26,7 @@ public class BaseTest {
     public DynamicPropertiesPage dynamicPropertiesPage;
     public WebTablesPage webTablesPage;
     public UploadAndDownloadPage uploadAndDownloadPage;
+    public BookPage bookPage;
     public ExcelReader excelReader;
     public WebDriverWait wait;
 
@@ -42,8 +43,8 @@ public class BaseTest {
     @AfterMethod
     public void clear()
     {
-        //driver.manage().deleteAllCookies();
-        //driver.quit();
+        driver.manage().deleteAllCookies();
+        driver.quit();
     }
 
     public void scrollToElement(WebElement element) {
@@ -55,17 +56,6 @@ public class BaseTest {
             if (c.getText().equalsIgnoreCase(cardName)){
                 scrollToElement(c);
                 c.click();
-                break;
-            }
-        }
-    }
-    public void clickSidebar(String sidebarLinkName)
-    {
-        for (WebElement s : sidebarPage.sidebarLinks){
-            if (s.getText().equalsIgnoreCase(sidebarLinkName))
-            {
-                scrollToElement(s);
-                s.click();
                 break;
             }
         }

@@ -30,7 +30,7 @@ public class DynamicPropertiesTest extends BaseTest {
         dynamicPropertiesPage = new DynamicPropertiesPage();
 
         clickCard("Elements");
-        clickSidebar("Dynamic Properties");
+        sidebarPage.clickSidebar("Dynamic Properties");
     }
 
     @Test
