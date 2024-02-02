@@ -17,6 +17,7 @@ public class BaseTest {
     //svi pages
     public LoginPage loginPage;
     public ProfilePage profilePage;
+    public BookStorePage bookStorePage;
 
     //public RegisterPage registerPage;
     public HomePage homePage;
@@ -27,6 +28,9 @@ public class BaseTest {
     public UploadAndDownloadPage uploadAndDownloadPage;
     public ExcelReader excelReader;
     public WebDriverWait wait;
+
+    public final String validUsername = "finalProject";
+    public final String validPassword = "finalProject123!"; // used on bookstore not only on login
 
 
     @BeforeClass

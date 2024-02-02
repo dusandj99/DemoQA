@@ -3,7 +3,6 @@ package Tests;
 import Base.BaseTest;
 import Pages.LoginPage;
 import Pages.ProfilePage;
-import Pages.RegisterPage;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -13,12 +12,10 @@ import java.time.Duration;
 
 public class LoginRegistrationTest extends BaseTest {
 
-    private final String validUsername = "finalProject";
-    private final String validPassword = "finalProject123!";
     private final String invalidUsername = "invalid123";
     private final String invalidPassword = "badPassword11!";
     private final String formInvalidPassword = "testingreg12"; //Uppercase + numeric + special char
-    //private String errorRegMessage = "Passwords must have at least one non alphanumeric character, one digit ('0'-'9'), one uppercase ('A'-'Z'), one lowercase ('a'-'z'), one special character and Password must be eight characters or longer.";
+    //private String errorRegMessage = "Passwords must have at least one non-alphanumeric character, one digit ('0'-'9'), one uppercase ('A'-'Z'), one lowercase ('a'-'z'), one special character and Password must be eight characters or longer.";
 
     private final String initialURL = "https://demoqa.com/login";
 
