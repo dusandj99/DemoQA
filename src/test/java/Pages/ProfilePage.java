@@ -21,6 +21,8 @@ public class ProfilePage extends BaseTest {
     public List<WebElement> buttons;
     @FindBy(id = "closeSmallModal-ok")
     public WebElement okModalButton;
+    @FindBy(className = "rt-noData")
+    public WebElement noRows;
     //--------------------------
     public void clickOnButton(String buttonName)
     {

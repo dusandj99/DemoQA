@@ -38,15 +38,27 @@ public class BookStoreTest extends BaseTest {
         loginPage.Login();
     }
     @Test
-    public  void userCanAddBookToCollection() {
-        //Assert.assertTrue(profilePage.bookNames.isEmpty());
-
-        bookStorePage.clickOnBook("Git Pocket Guide");
+    public void userCanAddBookToCollection() {
+        //Assert.assertTrue(profilePage.bookNames.isEmpty()); // profilePage FindBy pokupi knjige sa Bookstore? ista klasa
+        bookStorePage.clickOnBook("Learning JavaScript Design Patterns");
         bookPage.click("Add To Your Collection");
         driver.navigate().refresh();
         sidebarPage.clickSidebar("Profile");
 
-        Assert.assertTrue(profilePage.bookExists("Git Pocket Guide"));
+        Assert.assertTrue(profilePage.bookExists("Learning JavaScript Design Patterns"));
+    }
+
+    @Test
+    public void userCanDeleteBook(){
+        bookStorePage.clickOnBook("Learning JavaScript Design Patterns");
+        bookPage.click("Add To Your Collection");
+        driver.navigate().refresh();
+        sidebarPage.clickSidebar("Profile");
+        profilePage.clickOnButton("Delete All Books");
+        profilePage.closeModalOk();
+        driver.navigate().refresh();
+        //Assert.assertTrue(profilePage.noRows.isDisplayed());
+        Assert.assertFalse(profilePage.bookExists("Learning JavaScript Design Patterns"));
     }
 
     @AfterMethod
